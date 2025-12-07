@@ -28,6 +28,12 @@ body {
   padding: 40px 20px;
 }
 
+@media (max-width: 768px) {
+  .main-wrapper {
+    padding: 20px 12px;
+  }
+}
+
 /* ヘッダー */
 header {
   text-align: center;
@@ -39,6 +45,22 @@ header h1 {
   font-size: 2.2em;
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  header {
+    margin-bottom: 25px;
+  }
+  header h1 {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.3em;
+  }
+}
+
 .date-info {
   background-color: #fff;
   padding: 5px 15px;
@@ -50,12 +72,33 @@ header h1 {
   display: inline-block;
 }
 
-/* グリッドレイアウト (ここが重なりの原因になりやすい箇所を修正) */
+/* グリッドレイアウト */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 幅を少し調整 */
-  gap: 30px; /* カード間の隙間 */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
   width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
 
 /* 記事カード */
@@ -71,13 +114,27 @@ header h1 {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  height: auto; /* 高さを自動に */
-  min-height: 280px; /* 最低高さを確保 */
+  height: auto;
+  min-height: 280px;
 }
 .article-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   border-color: rgba(26, 115, 232, 0.3);
+}
+
+@media (max-width: 768px) {
+  .article-card {
+    padding: 16px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-card {
+    padding: 14px;
+    border-radius: 10px;
+  }
 }
 
 /* カードヘッダー */
@@ -123,7 +180,7 @@ header h1 {
   font-size: 0.9em;
   color: #5f6368;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* 行数制限 */
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-bottom: 15px;
@@ -145,7 +202,7 @@ header h1 {
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
-  z-index: 100; /* 最前面に */
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,6 +219,22 @@ header h1 {
   position: relative;
   box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
+
+@media (max-width: 768px) {
+  .modal-content-wrapper {
+    padding: 25px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content-wrapper {
+    padding: 16px;
+    margin: 10px;
+    max-height: 95vh;
+  }
+}
+
 .close-btn {
   position: absolute;
   top: 15px;
@@ -178,7 +251,9 @@ header h1 {
   align-items: center;
   justify-content: center;
 }
-.close-btn:hover { background: #e0e0e0; }
+.close-btn:hover {
+  background: #e0e0e0;
+}
 
 .modal-header {
   display: flex;
@@ -207,7 +282,24 @@ header h1 {
   font-weight: bold;
   color: #333;
 }
-.modal-meta { color: #777; font-size: 0.9em; margin-top: 5px; }
+
+@media (max-width: 768px) {
+  .modal-title h2 {
+    font-size: 1.3em;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-title h2 {
+    font-size: 1.1em;
+  }
+}
+
+.modal-meta {
+  color: #777;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
 
 .insight-section {
   background-color: #f0f7ff;
@@ -253,4 +345,6 @@ header h1 {
   font-weight: bold;
   margin: 15px 0 25px 0;
 }
-.original-link:hover { text-decoration: underline; }
+.original-link:hover {
+  text-decoration: underline;
+}
